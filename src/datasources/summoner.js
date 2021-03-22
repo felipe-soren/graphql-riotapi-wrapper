@@ -4,13 +4,11 @@ class RiotSummonerAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = "https://br1.api.riotgames.com/lol";
+    this.token = process.env.RIOT_TOKEN;
   }
 
   willSendRequest(request) {
-    request.headers.set(
-      "X-Riot-Token",
-      "RGAPI-9a06838c-3c12-4410-a7a1-416c01ba69b0"
-    );
+    request.headers.set("X-Riot-Token", this.token);
   }
 
   async _getSummonerLeague(summonerId) {
