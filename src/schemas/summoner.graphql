@@ -7,6 +7,7 @@ const summonerSchema = gql`
     profileIconId: Int!
     summonerLevel: Int!
     leagues: [League]
+    history: [History]
   }
 
   type League {
@@ -23,6 +24,16 @@ const summonerSchema = gql`
     inactive: Boolean!
     freshBlood: Boolean!
     hotStreak: Boolean!
+  }
+
+  type History {
+    platformId: String!
+    gameId: Float!
+    champion: Int!
+    queue: Int!
+    season: Int!
+    role: String!
+    lane: String!
   }
 
   type Query {
